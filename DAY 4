@@ -1,0 +1,228 @@
+// geeksforgeeks
+//(1)
+//Linked List Insertion At Beginning
+/*
+class Node {
+  public:
+    int data;
+    Node *next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+    Node *insertAtFront(Node *head, int x) {
+        // Code here
+         Node *newNode = new Node(x);
+         newNode->next = head;
+         head = newNode;
+         return head;
+          
+    }
+};
+
+//(2)
+//Linked List End Insertion
+/*
+class Node {
+  public:
+    int data;
+    Node* next;
+    Node(int data) {
+        this->data = data;
+        this->next = nullptr;
+    }
+};
+*/
+class Solution {
+    public:
+    Node *insertAtEnd(Node *head, int x){
+        
+        if(head==NULL){
+            
+            Node* nn= new Node(x);
+            return nn;
+        }
+        
+        if(head->next==NULL){
+            
+            Node* nn= new Node(x);
+            
+            head->next=nn;
+            
+            return head;
+        }
+        
+        Node* rec= insertAtEnd(head->next,x);
+        
+        
+        return head;
+    }
+};
+
+//(3)
+//Insertion at a Given Position in a Linked List
+
+/*
+class Node {
+  public:
+    int data;
+    Node *next;
+    Node(int x) {
+        data = x;
+        next = nullptr;
+    }
+};
+*/
+
+class Solution {
+  public:
+    Node *insertPos(Node *head, int pos, int val) {
+        // code here
+        if (pos==1){
+            Node *newNode = new Node(val);
+            newNode->next = head;
+            return newNode;
+    }
+    if (head == NULL) return NULL;
+    head->next = insertPos(head->next,pos-1,val);
+    return head;
+    }
+};
+
+
+
+//(4)
+//Delete in a Singly Linked List
+
+
+/*
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int data) {
+        this->data = data;
+        this->next = nullptr;
+    }
+};
+*/
+class Solution {
+  public:
+    Node* deleteNode(Node* head, int x) {
+        if (head == NULL)
+            return NULL;
+        if (x == 1) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return head;
+        }
+        head->next = deleteNode(head->next, x - 1);
+        return head;
+    }
+};
+
+
+
+//(5)
+//Delete Head of Linked List
+
+
+/*
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+
+*/
+class Solution {
+  public:
+    Node *deleteHead(Node *head) {
+        // code here
+        return head=head->next;
+    }
+};
+
+
+
+
+
+//(6)
+//Deletion at the end of a Linked Lis
+
+/*
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+*/
+class Solution {
+  public:
+    Node* removeLastNode(Node* head) {
+        if(head->next == NULL) {
+            delete head;
+            return NULL;
+        }
+        if(head->next->next == NULL) {
+            delete head->next;
+            head->next = NULL;
+            return head;
+        }
+        head->next = removeLastNode(head->next);
+        return head;
+    }
+};
+
+
+
+
+//(7)
+//Reverse a linked lis
+
+/*
+class Node {
+ public:
+    int data ;
+    Node *next ;
+
+    Node(int x) {
+        data = x ;
+        next = nullptr ;
+    }
+};
+*/
+
+class Solution {
+  public:
+    Node* reverseList(Node* head) {
+        // code here
+        if(head==NULL) return null;
+        Node * reverseList(head->next);
+        Node* temp->head;
+        head->next=NULL;
+        return res;
+    }
+};
+
+
+
+//(8)
+//
