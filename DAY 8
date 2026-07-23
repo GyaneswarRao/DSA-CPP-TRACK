@@ -1,0 +1,38 @@
+//this is questions in (geeks for geeks) platfrom
+// 1
+// Queue Traversal
+
+class Solution {
+  public:
+    vector<int> queueTraversal(queue<int>& q) {
+        // code here
+        vector<int> a;
+        while(!q.empty()){
+            a.push_back(q.front());
+            q.pop();
+        }
+        return a;
+    }
+};
+
+//leatcode
+//move zeroess
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+
+        int j = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] != 0) {
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+
+        while (j < nums.size()) {
+            nums[j] = 0;
+            j++;
+        }
+    }
+};
